@@ -19,7 +19,7 @@ const Book = ({ book }: BookProps) => {
 
   // セッションを取得する
   const { data: session } = useSession();
-  const user = session?.user;
+  const user: any = session?.user;
 
   // checkOutApiを呼び出す
   const startCheckout = async () => {
@@ -32,6 +32,8 @@ const Book = ({ book }: BookProps) => {
           body: JSON.stringify({
             title: book.title,
             price: book.price,
+            userId: user?.id,
+            bookId: book.id,
           }),
         },
       );
