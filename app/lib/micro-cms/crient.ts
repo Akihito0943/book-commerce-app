@@ -14,3 +14,13 @@ export const getAllBooks = async () => {
 
   return allBooks;
 };
+
+// 記事の詳細を取得する
+export const getDetailBook = async (contentId: string) => {
+  const detailBook = await client.getListDetail<BookType>({
+    endpoint: "e-book",
+    contentId,
+  });
+
+  return detailBook;
+};
