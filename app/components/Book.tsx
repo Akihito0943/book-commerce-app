@@ -10,10 +10,11 @@ import { json } from "node:stream/consumers";
 
 type BookProps = {
   book: BookType;
+  isPurchases: boolean;
 };
 
 // eslint-disable-next-line react/display-name
-const Book = ({ book }: BookProps) => {
+const Book = ({ book, isPurchases }: BookProps) => {
   // リダイレクト用のルーター
   const router = useRouter();
 
@@ -51,7 +52,12 @@ const Book = ({ book }: BookProps) => {
 
   // モーダルの状態を表示にするハンドラ
   const handleShow = () => {
-    setShowModal(true);
+    // 購入済みの場合はアラートを表示する
+    if (isPurchases) {
+      alert("既に購入済みです");
+    } else {
+      setShowModal(true);
+    }
   };
 
   // モーダルの状態を非表示にするハンドラ
