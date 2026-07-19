@@ -19,8 +19,8 @@ type User = {
 
 type Purchase = {
   id: string;
-  userId: String;
-  bookId: String;
+  userId: string;
+  bookId: string;
   createdAt: string;
   user: User;
 };

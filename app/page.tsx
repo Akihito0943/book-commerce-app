@@ -78,7 +78,9 @@ export default async function Home() {
           <Book
             key={book.id}
             book={book}
-            isPurchases={purchasesBookIdList.includes(book.id)}
+            isPurchases={
+              purchasesBookIdList && purchasesBookIdList.includes(book.id)
+            }
           />
         ))}
       </main>

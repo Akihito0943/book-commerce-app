@@ -14,7 +14,7 @@ type BookProps = {
 };
 
 // eslint-disable-next-line react/display-name
-const Book = ({ book, isPurchases }: BookProps) => {
+const Book = ({ book, isPurchases = false }: BookProps) => {
   // リダイレクト用のルーター
   const router = useRouter();
 
