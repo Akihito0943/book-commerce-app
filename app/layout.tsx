@@ -3,6 +3,8 @@ import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import { NextAuthProvider } from "./lib/next-auth/provider";
+import { Suspense } from "react";
+import LoadingSpinner from "./loading";
 
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-geist-sans",
@@ -25,7 +27,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <NextAuthProvider>
           <Header />
-          {children}
+          <Suspense fallback={<LoadingSpinner />}>{children}</Suspense>
         </NextAuthProvider>
       </body>
     </html>
