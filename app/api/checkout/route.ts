@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 // Postメソッドの定義
-export async function POST(request: Request, response: Response) {
+export async function POST(request: Request) {
   // リクエストからパラメータを取得
   const { title, price, bookId, userId } = await request.json();
 
