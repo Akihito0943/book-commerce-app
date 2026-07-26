@@ -51,7 +51,7 @@ export default async function Home() {
   const user = session?.user as User;
 
   // 購入済みのBookId一覧
-  let purchasesBookIdList: string[];
+  let purchasesBookIdList: string[] = [];
 
   // ユーザーがログインしているかチェック
   if (user) {
@@ -60,7 +60,15 @@ export default async function Home() {
       `${process.env.NEXT_PUBLIC_API_URL}/purchases/${user.id}`,
       { cache: "no-store" },
     );
-    const purchasesData = await response.json();
+
+    console.log("status:", response.status);
+    console.log("url:", response.url);
+
+    const text = await response.text();
+
+    console.log("response:", text);
+
+    const purchasesData = JSON.parse(text);
 
     // 購入済みのBookIdを取得し、一覧にまとめる
     purchasesBookIdList = purchasesData.map(
