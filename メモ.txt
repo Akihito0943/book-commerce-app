@@ -1,0 +1,2 @@
+Googleの承認を実装しようとしているところ
+GoogleCloudeでOAuthクライアントを作成したところまで済み
