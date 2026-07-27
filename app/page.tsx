@@ -89,6 +89,7 @@ export default async function Home() {
             isPurchases={
               purchasesBookIdList && purchasesBookIdList.includes(book.id)
             }
+            user={user}
           />
         ))}
       </main>

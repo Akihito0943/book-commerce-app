@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { BookType } from "../types/types";
+import { BookType, User } from "../types/types";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -11,16 +11,13 @@ import { json } from "node:stream/consumers";
 type BookProps = {
   book: BookType;
   isPurchases: boolean;
+  user: User;
 };
 
 // eslint-disable-next-line react/display-name
-const Book = ({ book, isPurchases = false }: BookProps) => {
+const Book = ({ book, isPurchases = false, user }: BookProps) => {
   // リダイレクト用のルーター
   const router = useRouter();
-
-  // セッションを取得する
-  const { data: session } = useSession();
-  const user: any = session?.user;
 
   // checkOutApiを呼び出す
   const startCheckout = async () => {
