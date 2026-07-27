@@ -11,7 +11,9 @@ export const getAllBooks = async () => {
   const allBooks = await client.getList<BookType>({
     endpoint: "e-book",
     customRequestInit: {
-      cache: "no-cache",
+      next: {
+        revalidate: 3600, // ISRにする（1日に1回リビルドが走り記事の更新が繁栄される
+      },
     },
   });
 
