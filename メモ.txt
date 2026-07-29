@@ -1,2 +1,4 @@
 Googleの承認を実装しようとしているところ
 GoogleCloudeでOAuthクライアントを作成したところまで済み
+
+487940006926-5hnnuhtm69q8rsngkjhbuqfig7c39881.apps.googleusercontent.com
